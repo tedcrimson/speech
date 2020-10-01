@@ -2,7 +2,7 @@
 
 A Flutter demo.
 
-## Getting Started
+## Previews
 ![](previews/preview1.gif)
 
 ![](previews/preview2.gif)

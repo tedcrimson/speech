@@ -154,7 +154,7 @@ class _MyAppState extends State<MyApp> {
                     child: Center(
                       child: GestureDetector(
                         onTap: () {
-                          showDialog(
+                          showDialog<void>(
                               context: context,
                               builder: (context) => Padding(
                                     padding: const EdgeInsets.all(40.0),
@@ -253,7 +253,7 @@ class _MyAppState extends State<MyApp> {
 
   bool calling = false;
 
-  _addToQueue(List<Word> words) async {
+  void _addToQueue(List<Word> words) async {
     for (var word in words) {
       actionQueue.add(() async {
         setState(() {
@@ -262,7 +262,7 @@ class _MyAppState extends State<MyApp> {
             curve: Curves.easeInCubic,
             duration: Duration(milliseconds: 400),
             // child: ,
-            builder: (_, val, child) {
+            builder: (context, double val, Widget child) {
               double scale = 5.0;
               return Transform(
                 transform: Matrix4.translationValues(20 * val, 30 * val, 0)
@@ -282,7 +282,7 @@ class _MyAppState extends State<MyApp> {
             },
           ));
         });
-        await Future.delayed(Duration(milliseconds: 200));
+        await Future<void>.delayed(Duration(milliseconds: 200));
       });
     }
     if (!calling) {
@@ -321,7 +321,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  _switchLang(selectedVal) {
+  void _switchLang(String selectedVal) {
     setState(() {
       _currentLocaleId = selectedVal;
     });
